@@ -25,16 +25,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="max-w-2xl mx-auto pb-10 px-4">
             <header>
-              <div className='pb-5'>
-                <h1 className='text-xl'>
-                  fordev<span className='text-fuchsia-800 text-5xl'>.</span><strong>dev</strong>
-                </h1>
-              </div>
-              <div className="flex items-center justify-between">
+              <div className='pb-5 flex items-baseline justify-between'>
+                <Link href={'/'}>
+                  <h1 className='text-xl'>
+                    fordev<span className='text-fuchsia-800 text-5xl'>.</span><strong>dev</strong>
+                  </h1>
+                </Link>
                 <ModeToggle />
+              </div>
+              <div className="flex items-center">
                 <nav className="ml-auto text-sm font-medium space-x-6">
                   <Link href="/">Home</Link>
-                  {/* <Link href="/about">About</Link> */}
+                  {/* <Link href="/about">About</Link>
+                  <Link href="/about">Contact</Link>
+                  <Link href="/about">Sign up</Link> */}
                 </nav>
               </div>
             </header>
