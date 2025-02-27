@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
 import { ModeToggle } from "@/components/mode-toggle"
+import { GithubButton } from '@/components/github-button'
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -31,7 +32,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     fordev<span className='text-fuchsia-800 text-5xl'>.</span><strong>dev</strong>
                   </h1>
                 </Link>
-                <ModeToggle />
+                <div className="flex space-x-2">
+                  <GithubButton/>
+                  <ModeToggle />
+                </div>
               </div>
               <div className="flex items-center">
                 <nav className="ml-auto text-sm font-medium space-x-6">
