@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
 import { ModeToggle } from "@/components/mode-toggle"
 import { GithubButton } from '@/components/github-button'
+import Script from 'next/script'
+import dynamic from 'next/dynamic'
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,10 +18,19 @@ export const metadata = {
 interface RootLayoutProps {
   children: React.ReactNode
 }
+const DynamicGTM = dynamic(
+	() => import('../components/google-tag-manager'),
+	{
+		ssr: false,
+	},
+)
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
+      <head>
+        <DynamicGTM/>
+      </head>
       <body
         className={`antialiased min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
