@@ -1,0 +1,45 @@
+---
+title: "How to Set Up Tailwind CSS v4 in Next.js"
+description: "Learn how to set up Tailwind CSS v4 in your Next.js project with a step-by-step guide to enhance your frontend development."
+date: "2025-03-03"
+---
+
+## 1. Create a New Next.js Project
+
+Start by creating a new Next.js project. It’s recommended to use Create Next App for an easier setup:
+
+```bash
+npx create-next-app@latest my-project --typescript --eslint --app
+```
+
+## 2. Install Tailwind CSS and Dependencies
+
+Navigate to your project directory and install Tailwind CSS and its dependencies:
+
+```bash
+cd my-project
+npm install tailwindcss @tailwindcss/postcss postcss
+```
+
+## 3. Configure Tailwind CSS
+
+In Tailwind CSS v4, the configuration is done directly in the global CSS file. Edit the ./src/app/globals.css file and add the following line:
+
+```bash
+@import "tailwindcss";
+```
+This imports Tailwind CSS using the CSS-first approach.
+
+## 4. Start the Development Server
+
+```bash
+npm run dev
+```
+Now, you can use Tailwind CSS utility classes in your Next.js components. For example, edit the ./src/app/page.tsx file to include a styled heading:
+
+```tsx
+export default function Page() {
+  return <h1 className="text-3xl font-bold underline">Hello, Next.js with Tailwind CSS v4!</h1>;
+}
+```
+With these steps, Tailwind CSS v4 will be configured in your Next.js project, ready for building modern and responsive interfaces.
