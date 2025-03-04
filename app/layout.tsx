@@ -39,8 +39,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <header>
               <div className='pb-5 flex items-baseline justify-between'>
                 <Link href={'/'}>
-                  <h1 className='text-xl'>
-                    fordev<span className='text-fuchsia-800 text-5xl'>.</span><strong>dev</strong>
+                  <h1 className='text-2xl font-light'>
+                    <strong className='font-bold'>fordev</strong><span className='text-fuchsia-800 text-5xl'>.</span>dev
                   </h1>
                 </Link>
                 <div className="flex space-x-2">
