@@ -1,0 +1,78 @@
+---
+title: "Top Security Vulnerabilities in Node.js Applications and How to Prevent Them"
+description: "Learn about common security threats in Node.js applications, such as SQL Injection, XSS, and CSRF, and how to protect your app."
+date: "2025-03-04"
+---
+
+# 🔒 Top Security Vulnerabilities in Node.js Applications and How to Prevent Them
+
+Node.js is widely used for building web applications, but like any other technology, it comes with security risks. Understanding and mitigating these risks is essential for building secure applications. In this post, we’ll explore some of the most common vulnerabilities in Node.js applications and how to prevent them.
+
+## 🛑 1. SQL Injection
+
+### ⚠️ The Risk:
+SQL Injection occurs when an attacker manipulates an application’s database query by injecting malicious SQL statements. This can lead to data leaks, unauthorized modifications, or even complete database compromise.
+
+### ✅ Prevention:
+- Always use parameterized queries or ORM libraries like Prisma, Sequelize, or TypeORM.
+- Validate and sanitize user input before using it in SQL queries.
+- Avoid dynamically constructing queries with user input.
+
+```javascript
+const query = 'SELECT * FROM users WHERE email = ?';
+const user = await db.execute(query, [userInput]);
+```
+
+## 🌐 2. Cross-Site Scripting (XSS)
+
+### ⚠️ The Risk:
+XSS occurs when an attacker injects malicious scripts into a web page that other users visit. This can be used to steal session tokens, perform phishing attacks, or take over accounts.
+
+### ✅ Prevention:
+- Escape user-generated content before rendering it in the browser.
+- Use libraries like DOMPurify to sanitize HTML.
+- Implement a Content Security Policy (CSP) to block inline scripts.
+
+```javascript
+const sanitizedInput = DOMPurify.sanitize(userInput);
+```
+
+## 🔄 3. Cross-Site Request Forgery (CSRF)
+
+### ⚠️ The Risk:
+CSRF exploits the trust that a user has in a website by tricking them into making unintended requests on their behalf.
+
+### ✅ Prevention:
+- Use CSRF tokens to validate legitimate requests.
+- Implement the `SameSite` cookie attribute for session cookies.
+- Require re-authentication for sensitive actions.
+
+```javascript
+app.use(csrf());
+```
+
+## 🖥 4. Command Injection
+
+### ⚠️ The Risk:
+Command injection happens when an attacker executes arbitrary system commands through unsanitized user input.
+
+### ✅ Prevention:
+- Never use `exec()` or `spawn()` with unsanitized user input.
+- Use libraries like `child_process.execFile()` that don’t invoke shell interpretation.
+- Run the application with minimal privileges.
+
+```javascript
+const { execFile } = require('child_process');
+execFile('ls', ['-lh'], (error, stdout) => {
+  if (error) throw error;
+  console.log(stdout);
+});
+```
+
+## 🏗️ Final Thoughts
+
+Security is an ongoing process, and keeping your Node.js application secure requires constant vigilance. Regularly update dependencies, use security-focused tools like `npm audit` and `Snyk`, and follow best practices to minimize risks.
+
+By implementing these security measures, you can protect your application and user data from common attacks.
+
+🔐 **Stay secure and code responsibly!**
