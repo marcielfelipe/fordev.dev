@@ -37,7 +37,6 @@ pnpm dev
 ---
 title: "My New Post"
 date: "YYYY-MM-DD"
-author: "Your Name"
 description: "A brief description of the post."
 ---
 ```
