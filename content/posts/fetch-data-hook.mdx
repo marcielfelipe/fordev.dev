@@ -1,0 +1,30 @@
+---
+title: "Improving Code Reusability with Custom Hooks and React Query"
+description: "A discussion on sharing API data across React components using custom hooks with react-query and Next.js server components for better code organization and performance."
+date: "2025-03-25"
+---
+
+Imagine a scenario where you need to share data from a single API request across several components in your React application. In the past, you might have relied on Context API, Zustand, or even Redux to manage state across your app. However, these solutions can sometimes feel heavyweight or unnecessarily complex for simple data sharing needs.
+
+Recently, I’ve been embracing a different approach—using custom hooks with **react-query** and **Next.js**, especially when working with **server components**. This method not only simplifies your codebase but also leverages the powerful features that react-query provides out of the box.
+
+By modularizing your data fetching, you separate the fetch logic into its own dedicated function and encapsulate the query within a custom hook. This way, you can tap into the react-query context to share data between multiple components without making duplicate API calls.
+
+Here’s why this approach is a game-changer:
+
+- **Cleaner and More Organized Code** 🧹: Separating concerns makes your project easier to maintain and scale.
+- **Reusability and Centralized Data Logic** 🔄: You create a single point of truth for your data, reducing code duplication.
+- **Access to react-query Features** ⚙️: Enjoy full control over states like isLoading, isFetching, error handling, and more.
+- **Improved Performance** 🚀: Eliminate unnecessary API calls, optimizing your application's efficiency.
+
+Below are some code examples demonstrating this approach:
+
+### 1. Action to Fetch Users (`actions.ts`)
+
+<Image src="/25-03/1-action.png" alt="actions.ts" width={800} height={400} />
+
+### 2. Custom Hook to Retrieve Users (use-get-users.ts)
+<Image src="/25-03/2-hook.png" alt="hook.ts" width={800} height={400} />
+
+### 3. User Table Component (user-table.tsx)
+<Image src="/25-03/3-component.png" alt="component.ts" width={800} height={400} />
